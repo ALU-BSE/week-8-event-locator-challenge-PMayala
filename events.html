@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Event Locator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-calendar-event"></i> EventLocator
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Events</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Events</li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Events Section -->
+  <section class="events-section">
+    <div class="container">
+      <div class="row">
+        <!-- Filters Sidebar -->
+        <div class="col-lg-3 mb-4 mb-lg-0">
+          <div class="filters-sidebar">
+            <h3>Filters</h3>
+            
+            <div class="filter-group">
+              <label for="searchEvents" class="form-label">Search</label>
+              <div class="input-group mb-3">
+                <input type="text" id="searchEvents" class="form-control" placeholder="Search events...">
+                <button class="btn btn-outline-primary" type="button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="filter-group">
+              <label for="locationFilter" class="form-label">Location</label>
+              <select class="form-select mb-3" id="locationFilter" aria-label="Filter events by location">
+                <option value="all">All Locations</option>
+                <option value="new-york">New York</option>
+                <option value="los-angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="miami">Miami</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="categoryFilterPage" class="form-label">Category</label>
+              <select class="form-select mb-3" id="categoryFilterPage">
+                <option value="all">All Categories</option>
+                <option value="music">Music</option>
+                <option value="tech">Technology</option>
+                <option value="food">Food & Drink</option>
+                <option value="arts">Arts & Culture</option>
+                <option value="sports">Sports</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label class="form-label">Date Range</label>
+              <div class="mb-3">
+                <label for="startDate" class="form-label small">From</label>
+                <input type="date" id="startDate" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="endDate" class="form-label small">To</label>
+                <input type="date" id="endDate" class="form-control">
+              </div>
+            </div>
+            
+            <div class="filter-group">
+              <label class="form-label">Price Range</label>
+              <div class="price-range">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="free" id="freeEvents">
+                  <label class="form-check-label" for="freeEvents">
+                    Free
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="paid" id="paidEvents">
+                  <label class="form-check-label" for="paidEvents">
+                    Paid
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <button id="applyFiltersPage" class="btn btn-primary w-100 mt-3" aria-label="Apply event filters">Apply Filters</button>
+            <button id="resetFilters" class="btn btn-outline-secondary w-100 mt-2">Reset Filters</button>
+          </div>
+        </div>
+        
+        <!-- Events List -->
+        <div class="col-lg-9">
+          <div class="events-header">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <h2 id="eventsCount">All Events (24)</h2>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <div class="d-flex justify-content-md-end">
+                  <select class="form-select form-select-sm me-2 sort-select" id="sortEvents">
+                    <option value="date-asc">Date: Upcoming</option>
+                    <option value="date-desc">Date: Past</option>
+                    <option value="name-asc">Name: A-Z</option>
+                    <option value="name-desc">Name: Z-A</option>
+                  </select>
+                  <div class="view-options">
+                    <button class="btn btn-sm btn-outline-secondary active" id="gridView">
+                      <i class="bi bi-grid"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary" id="listView">
+                      <i class="bi bi-list-ul"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row" id="eventsList">
+            <!-- Events will be populated by JavaScript -->
+            <!-- Example of lazy loading for event images -->
+            <img src="..." alt="Event image" class="img-fluid" loading="lazy">
+          </div>
+          
+          <!-- Pagination -->
+          <nav aria-label="Events pagination" class="mt-4">
+            <ul class="pagination justify-content-center" id="eventsPagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter to get the latest events in your inbox.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h3>EventLocator</h3>
+          <p>Find the best events happening around you. Never miss out on the fun!</p>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4 mb-md-0">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6 mb-4 mb-md-0">
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Food & Drink</a></li>
+            <li><a href="#">Sports</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt"></i> 123 Event Street, City, Country</li>
+            <li><i class="bi bi-envelope"></i> info@eventlocator.com</li>
+            <li><i class="bi bi-telephone"></i> +1 (555) 123-4567</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EventLocator. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Structured data for events -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Event Title",
+  "startDate": "Event Date",
+  "location": {
+    "@type": "Place",
+    "name": "Event Location",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "City",
+      "addressRegion": "State",
+      "postalCode": "Zip Code",
+      "addressCountry": "Country"
+    }
+  },
+  "image": "Event Image URL",
+  "description": "Event Description"
+}
+</script>
+</body>
+</html>
+
