@@ -1,45 +1,83 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18554726)
-# afd-2023M-event-locator-Challenge
 
+# Event Locator
 
-### Project Scenario: Event Locator
+Event Locator is a web application that allows users to search for events happening in their city. Users can filter events by date and category, view detailed information about each event, and discover new experiences in their area.
 
-#### Project Description
-Create an Event Locator web application that allows users to search for events happening in their city. 
-The application will display a list of events with details such as event name, date, location, 
-and a brief description. Users can filter events by date and category.
+## Features
 
-#### Features
-1. **Home Page**: A landing page with a search bar and filters for date and category.
-2. **Event List**: A page displaying a list of events based on the search criteria.
-3. **Event Details**: A page showing detailed information about a selected event.
-4. **Responsive Design**: Ensure the application is mobile-friendly using Bootstrap.
+- Home Page with featured events and search functionality
+- Event List Page with filtering and sorting options
+- Event Details Page with comprehensive event information
+- Responsive design for mobile and desktop devices
+- Search functionality to find events by city, date, and category
+- Interactive map view for event locations
+- User reviews and ratings for events
 
-#### Tasks
+## Technologies Used
 
-1. **Setup Project Structure**
-   - Create the project directory and subdirectories for HTML, CSS, and JavaScript files.
-   - Include Bootstrap via CDN in the project.
+- HTML5
+- CSS3 (with custom variables and responsive design)
+- JavaScript (ES6+)
+- Bootstrap 5 for layout and components
+- Google Maps API for location mapping
+- Font Awesome for icons
 
-2. **Home Page**
-   - Create `index.html` with a search bar and filters for date and category.
-   - Style the page using Bootstrap and custom CSS.
+## Getting Started
 
-3. **Event List Page**
-   - Create `events.html` to display a list of events.
-   - Use JavaScript to dynamically generate event cards based on search criteria.
-   - Style the event cards using Bootstrap.
+### Prerequisites
 
-4. **Event Details Page**
-   - Create `event-details.html` to show detailed information about a selected event.
-   - Use JavaScript to populate the page with event details.
-   - Style the page using Bootstrap.
+- A modern web browser (Chrome, Firefox, Safari, or Edge)
+- An internet connection
+- A code editor (e.g., Visual Studio Code, Sublime Text)
 
-5. **JavaScript Functionality**
-   - Implement search functionality to filter events by date and category.
-   - Use JavaScript to fetch and display event data.
-   - Add event listeners for user interactions.
+### Installation
 
-6. **Responsive Design**
-   - Ensure all pages are responsive using Bootstrap's grid system and utilities.
-   - Test the application on different screen sizes.
+1. Clone the repository:
+   ```
+   git clone https://github.com/ALU-BSE/week-8-event-locator-challenge-PMayala
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd week-8-event-locator-challenge-PMayala
+   ```
+
+3. Open the `index.html` file in your web browser to view the application.
+
+## Usage
+
+1. On the home page, use the search bar to find events in a specific city.
+2. Browse featured events or explore events by category.
+3. Use filters on the events page to narrow down your search by date, category, or price range.
+4. Click on an event to view detailed information, including description, schedule, and location.
+5. On the event details page, you can see reviews, ratings, and similar events.
+
+## Project Structure
+
+- `index.html`: Home page
+- `events.html`: Events listing page
+- `event-details.html`: Individual event details page
+- `styles.css`: Main stylesheet
+- `script.js`: JavaScript file containing all the functionality
+
+## Customization
+
+To customize the application:
+
+1. Modify the color scheme in the `:root` section of `styles.css`.
+2. Update the event data in the `eventsData` array in `script.js`.
+3. Adjust the layout and components in the HTML files as needed.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Images from Unsplash
+- Icons from Bootstrap Icons
+- Google Maps API for location services
